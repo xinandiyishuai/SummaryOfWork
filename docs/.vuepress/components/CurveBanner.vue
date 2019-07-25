@@ -134,6 +134,9 @@
     mounted () {
       stage = new Stage(800, 520, '.curve-con')
       this.main()
+    },
+    destroyed() {
+      status = null
     }
   };
 </script>

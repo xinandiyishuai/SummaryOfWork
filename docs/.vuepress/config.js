@@ -2,6 +2,7 @@ module.exports = {
   title: 'Summary Of work',
   description: 'The description of the site.',
   head: [['link', { rel: 'icon', href: `/logo.png` }]],
+  // base: '/SummaryOfwork/',
   base: '/',
   dest: './dist',
 

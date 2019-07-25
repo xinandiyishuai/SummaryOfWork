@@ -1,0 +1,22 @@
+{
+  "name": "summaryofwork",
+  "version": "0.0.1",
+  "description": "work space of question and solution",
+  "author": "Amigo",
+  "repository": "https://github.com/xinandiyishuai/SummaryOfWork",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^0.14.5"
+  },
+  "dependencies": {
+    "curvejs": "^0.3.4",
+    "markdown-it": "^8.4.1",
+    "markdown-it-emoji": "^1.4.0",
+    "markdown-it-katex": "^2.0.3"
+  }
+}

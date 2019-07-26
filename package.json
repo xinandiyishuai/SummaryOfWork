@@ -8,7 +8,7 @@
     "clean": "rimraf dist/*",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "/bin/bash bin/deploy.sh"
+    "deploy": "deploy.bat"
   },
   "license": "MIT",
   "devDependencies": {

@@ -1,5 +1,5 @@
 @echo off 
-cd ../dist/
+cd dist/
 git init 
 git config core.autocrlf false
 git remote add origin git@github.com:Mackkkk/SummaryOfwork.git

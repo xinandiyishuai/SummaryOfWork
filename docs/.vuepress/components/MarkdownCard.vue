@@ -1,5 +1,5 @@
 <template>
-  <div class="md-card">
+  <div class="md-card" :class="link? 'cursor': ''" @click="toLink">
     <div v-if="image" class="card-image">
       <img :src="$withBase(image)" alt="">
     </div>
@@ -11,7 +11,13 @@
 
 <script>
 export default {
-  props: ['image']
+  props: ['image', 'link'],
+  methods: {
+    toLink() {
+      const path = this.link
+      path && this.$router.push({path})
+    }
+  }
 };
 </script>
 
@@ -37,7 +43,6 @@ export default {
       max-width 150px
       max-height 150px
       height 150px
-      border: 1px solid #eee;
       border-radius 0.2rem
       object-fit cover
   .card-content
@@ -67,5 +72,6 @@ export default {
       pre
         margin 0
         border-radius 6px
-
+.cursor
+  cursor pointer
 </style>

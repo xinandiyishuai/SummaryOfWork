@@ -48,7 +48,7 @@
       background-color: $homeBgColor;
       min-height: calc(100vh - 6rem);
       display: flex;
-      padding: 2.4rem 2rem 0;
+      padding: 1.2rem 2rem 0;
     }
 
     @media (max-width: $MQMobileNarrow) {
@@ -69,7 +69,6 @@
     .description {
       width: 56vw;
       line-height: 32px;
-      margin-top: 50px;
     }
 
     .footer {

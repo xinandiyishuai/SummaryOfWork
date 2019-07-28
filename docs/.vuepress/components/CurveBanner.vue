@@ -12,9 +12,23 @@
   const randomColor = util.randomColor
   let stage = null
   export default {
-    computed: {
-      data () {
-
+    data() {
+      return {
+        content: [
+          {text: 'S', x: -8, y: 0, r: 5},
+          {text: 'u', x: 78, y: 5, r: 4},
+          {text: 'm', x: 184, y: 5, r: 5},
+          {text: 'm', x: 276, y: 5, r: 5},
+          {text: 'a', x: 332, y: 5, r: 4},
+          {text: 'r', x: 415, y: 5, r: 4},
+          {text: 'y', x: 468, y: 0, r: 4},
+          {text: 'O', x: 332, y: 160, r: 5},
+          {text: 'f', x: 410, y: 160, r: 4},
+          {text: 'W', x: 382, y: 340, r: 4},
+          {text: 'o', x: 532, y: 340, r: 4},
+          {text: 'r', x: 624, y: 368, r: 4},
+          {text: 'k', x: 684, y: 340, r: 4}
+        ]
       }
     },
     methods: {
@@ -23,111 +37,16 @@
         window.requestAnimationFrame(this.tick)
       },
       main () {
-        const words = ['Summary', 'Of', 'Work']
-        const space = 100
-        let instance = 0
-        words.forEach(w => {
-          w.split('').forEach(item => {
-            const x = instance + 65
-            // stage.add(new Word('a',{
-            //     color: randomColor(),
-            //     x,
-            //     motion: motion.dance,
-            //     data: {angle: 0, r:4 ,step:Math.PI / 40 }
-            // }))
-            instance = x
-          })
-          instance += space
+        this.content.forEach(item => {
+          const step = Math.PI / (~~Math.random()*90 + 38)
+          stage.add(new Word(item.text, {
+          color: randomColor(),
+          x: item.x,
+          y: item.y,
+          motion: motion.dance,
+          data: { angle: 0, r: item.r, step }
+        }))
         })
-        stage.add(new Word('S', {
-          color: randomColor(),
-          x: -8,
-          motion: motion.dance,
-          data: { angle: 0, r: 5, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('u', {
-          color: randomColor(),
-          x: 78,
-          y: 5,
-          motion: motion.dance,
-          data: { angle: 188, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('m', {
-          color: randomColor(),
-          x: 92 * 2,
-          y: 5,
-          motion: motion.dance,
-          data: { angle: 0, r: 3, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('m', {
-          color: randomColor(),
-          x: 92 * 3,
-          y: 5,
-          motion: motion.dance,
-          data: { angle: 0, r: 5, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('a', {
-          color: randomColor(),
-          x: 83 * 4,
-          y: 5,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('r', {
-          color: randomColor(),
-          x: 83 * 5,
-          y: 5,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('y', {
-          color: randomColor(),
-          x: 78 * 6,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('O', {
-          color: randomColor(),
-          x: 83 * 4,
-          y: 160,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('f', {
-          color: randomColor(),
-          x: 82 * 5,
-          y: 160,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('W', {
-          color: randomColor(),
-          x: 64 * 6,
-          y: 340,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('o', {
-          color: randomColor(),
-          x: 76 * 7,
-          y: 340,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('r', {
-          color: randomColor(),
-          x: 78 * 8,
-          y: 368,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
-        stage.add(new Word('k', {
-          color: randomColor(),
-          x: 76 * 9,
-          y: 340,
-          motion: motion.dance,
-          data: { angle: 0, r: 4, step: Math.PI / 40 }
-        }))
         this.tick()
       }
     },
@@ -144,7 +63,7 @@
 <style lang="stylus">
   .curve-con {
     margin: 0 auto;
-    width: 50vw;
-    height: 52vh;
+    width: 800px;
+    height: 520px;
   }
 </style>

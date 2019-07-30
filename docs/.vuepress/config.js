@@ -22,7 +22,7 @@ module.exports = {
             link: '/bookReading/'
           },
           {
-            text: '🥧资源',
+            text: '📂资源',
             link: '/resource/'
           },
           {

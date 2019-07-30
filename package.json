@@ -13,10 +13,11 @@
   "license": "MIT",
   "devDependencies": {
     "lodash": "^4.17.15",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
     "vuepress": "^0.14.5"
   },
   "dependencies": {
-    "curvejs": "^0.3.4",
     "markdown-it": "^8.4.1",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-katex": "^2.0.3"

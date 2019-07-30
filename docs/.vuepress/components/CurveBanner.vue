@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import curvejs from '../lib/node_modules/curvejs/index.js'
+  import curvejs from '../lib/my_node_modules/curvejs/index.js'
   import util from '../util/util.js'
   import Word from '../lib/curve/word.js'
   const { Stage, motion } = curvejs

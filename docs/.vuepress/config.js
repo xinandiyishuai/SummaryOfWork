@@ -42,8 +42,7 @@ module.exports = {
       '/bookReading/': getMdMap(path.join('bookReading')),
       '/resource/': getMdMap(path.join('resource')),
       '/article/': getMdMap(path.join('article'))
-    },
-    lastUpdated: 'Last Updated'
+    }
   },
   markdown: {
     // options for markdown-it-anchor

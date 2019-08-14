@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="home" :style="{backgroundColor: bgColor}">
     <div class="wrapper">
-      <curve-banner v-if='curveShow'></curve-banner>
+      <curve-banner v-if='curveShow' @averageClolr='getAverageClolr'></curve-banner>
       <div class="description">
         <Content />
       </div>
@@ -21,12 +21,18 @@
     },
     data() {
       return {
-        curveShow: false
+        curveShow: false,
+        bgColor: '#f8f8f8'
       }
     },
     computed: {
       data () {
         return this.$page.frontmatter;
+      }
+    },
+    methods: {
+      getAverageClolr(color) {
+        // this.bgColor = `#${color}`
       }
     },
     mounted () {

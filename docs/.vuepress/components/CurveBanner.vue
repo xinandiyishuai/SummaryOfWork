@@ -37,16 +37,21 @@
         window.requestAnimationFrame(this.tick)
       },
       main () {
+        let averageClolr = 0
         this.content.forEach(item => {
           const step = Math.PI / (~~Math.random()*90 + 38)
+          const color = randomColor()
+          averageClolr += parseInt(color.replace(/\#/,''), 16)
           stage.add(new Word(item.text, {
-          color: randomColor(),
-          x: item.x,
-          y: item.y,
-          motion: motion.dance,
-          data: { angle: 0, r: item.r, step }
-        }))
+            color,
+            x: item.x,
+            y: item.y,
+            motion: motion.dance,
+            data: { angle: 0, r: item.r, step }
+          }))
         })
+        averageClolr = parseInt(averageClolr/this.content.length)
+        this.$emit('averageClolr',averageClolr.toString(16))
         this.tick()
       }
     },

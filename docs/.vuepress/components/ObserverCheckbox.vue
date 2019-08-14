@@ -1,22 +1,17 @@
 <template>
   <div class="chebox-con">
-    <input type='checkbox'
-           name='checkbox0'></input>
-           <label for="checkbox0">CheckBox 1</label>
-    <button id='addNewObserver'>添加CheckBox</button>
-    <!-- <v-btn class="mx-2" fab small color="error">
-      <v-icon dark>add</v-icon>
-    </v-btn> -->
-    <div id='observersContainer'></div>
+    <p>
+      <a-checkbox @change="onChange">ConcreteSubject</a-checkbox>
+      <a-button size='small' type="primary" icon="plus" @click="addObserver">创建Observer</a-button>
+    </p>
+    <div ref='observersContainer'></div>
   </div>
 </template>
 
 <script>
-  import '../lib/my_node_modules/vuetify/dist/vuetify.css'
-  import Vuetify, {
-  VBtn,
-  VIcon
-} from '../lib/my_node_modules/vuetify/lib'
+  import Button from 'ant-design-vue/lib/button';
+  import Checkbox from 'ant-design-vue/lib/checkbox';
+  import 'ant-design-vue/dist/antd.css';
   class Observer {
     constructor (obj) {
       this.target = obj
@@ -78,22 +73,23 @@
   const Sub = new Subject()
   export default {
     components: {
-      VBtn,
-      VIcon
+      aButton: Button,
+      aCheckbox: Checkbox
     },
-    mounted () {
-      let i = 1
-      const controlCheckbox = document.querySelector('[name = checkbox0]'),
-        addBtn = document.querySelector('#addNewObserver'),
-        container = document.querySelector('#observersContainer')
-      addBtn['onclick'] = function () {
-        i++
+    data() {
+      return {
+        i: 0
+      }
+    },
+    methods: {
+      addObserver() {
+        if(this.i > 1) return
+        this.i++
         // 创建新的具体目标
         const check = document.createElement('input'),
         p = document.createElement('p'),
-        label = `<label for="checkbox${i}">CheckBox ${i}</label>`
-        check.type = 'checkbox'
-        check.name = `checkbox${i}`
+        label = `<label class='label' for="checkbox${this.i}"> Observer${this.i}</label>`
+        check.type = check.dataset.type = 'checkbox'
         // 创建新的观察者并添加到容器
         new Observer(check)
         // 观察者通知更新接口实现
@@ -102,14 +98,66 @@
         }
         p.innerHTML = label
         p.prepend(check)
-        container.appendChild(p)
+        this.$refs.observersContainer.appendChild(p)
+      },
+      onChange(e) {
+        Sub.Notify(e.target.checked)
       }
-      // 通知观察者更新
-      controlCheckbox['onclick'] = function () {
-        Sub.Notify(this.checked)
-      }
+    },
+    mounted () {
     },
   };
 </script>
 
-<style lang="stylus"></style>
+<style lang="less">
+.chebox-con{
+  background: #f8f8f8;
+  padding: 10px;
+  max-height: 120px;
+  .label{
+    padding: 0 8px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  p{
+    display: flex;
+    align-items: center;
+  }
+  input[data-type='checkbox'] {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    -webkit-appearance:none;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    outline: none;
+    transition: all .2s linear;
+    &:focus,&:hover{
+      border: 1px solid #1890ff;
+    }
+    &::after{
+      transform: rotate(45deg) scale(0);
+      border: 2px solid #fff;
+      border-top: 0;
+      border-left: 0;
+      content: ' ';
+      transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+      width: 5.71428571px;
+      height: 9.14285714px;
+      opacity: 0;
+      position: absolute;
+      display: table;
+      top: 1.14285714px;
+      left: 4.57142857px;
+    }
+    &:checked{
+      background-color: #1890ff;
+      border-color: #1890ff;
+      &::after{
+        transform: rotate(45deg) scale(1);
+        opacity: 1;
+      }
+    }
+  }
+}
+</style>

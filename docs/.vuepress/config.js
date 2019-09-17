@@ -32,6 +32,10 @@ module.exports = {
         ]
       },
       {
+        text: 'Leetcode',
+        link: '/leetcode/数组乱序.html'
+      },
+      {
         text: 'Gayhub',
         link: 'https://github.com/xinandiyishuai/SummaryOfWork'
       }
@@ -41,7 +45,8 @@ module.exports = {
       '/blog/': getMdMap(path.join('blog')),
       '/bookReading/': getMdMap(path.join('bookReading')),
       '/resource/': getMdMap(path.join('resource')),
-      '/article/': getMdMap(path.join('article'))
+      '/article/': getMdMap(path.join('article')),
+      '/leetcode/': getMdMap(path.join('leetcode'))
     }
   },
   markdown: {

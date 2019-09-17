@@ -1140,3 +1140,5 @@ function _with(exp, vm, extraRule, extraFn, otherFn) {
 * v-model
 * :style
 * :class
+---
+**[~gayhub](https://github.com/Mackkkk/webEffect/tree/master/src/view/vuerealization)**

@@ -21,9 +21,12 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.3.13",
+    "iview": "^3.5.1",
     "markdown-it": "^8.4.1",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-katex": "^2.0.3",
-    "node-emoji": "^1.10.0"
+    "node-emoji": "^1.10.0",
+    "simple-web-worker": "^1.2.0",
+    "vue-codemirror": "^4.0.6"
   }
 }

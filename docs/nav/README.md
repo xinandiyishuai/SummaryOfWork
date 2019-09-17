@@ -1,6 +1,6 @@
 # Introduction
  
-## 概括
+## 本博客由vuepress搭建
 * [vueprss官网](https://vuepress.vuejs.org/zh/config/)
 * Markdown于写作。([Markdown十分钟](https://blog.csdn.net/u014061630/article/details/81359144))
 * Vue驱动 : 在 Markdown 中使用 Vue 组件，又可以使用 Vue 来开发自定义主题。 
@@ -15,4 +15,4 @@
 [Emoji大全](https://gitmoji.carloscuesta.me)
 
 ## markdown
-**[markdown-demo](/article/markdownDemo/)**
+**[markdown-demo](/article/markdownDemo.html)**

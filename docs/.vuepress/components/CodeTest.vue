@@ -1,17 +1,16 @@
 <template>
   <div>
     <!-- codemirror -->
-    <div class='select_wraper'
-         v-if="mode === 'reduce'">
+    <div class='select_wraper'>
       <a-select labelInValue
                 :defaultValue="{key: 'reduce'}"
-                style="width: 120px"
-                @change="reduceSelect">
+                style="width: 120px;margin-right: 14px;"
+                @change="reduceSelect"
+                v-if="mode === 'reduce'">
         <a-select-option value="fakeReduce">fakeReduce</a-select-option>
         <a-select-option value="reduce">reduce</a-select-option>
       </a-select>
-      <a-button style="margin-left: 14px;"
-                type="primary"
+      <a-button type="primary"
                 size='small'
                 @click="run">运行</a-button>
     </div>
@@ -58,6 +57,9 @@
   import Alert from 'ant-design-vue/lib/alert'
   import 'ant-design-vue/dist/antd.css';
   import iSpin from 'iview/src/components/spin'
+
+  import CodeMap from '../constants/codemap'
+
   import 'iview/dist/styles/iview.css'
 
   import '../js/reduce'
@@ -157,23 +159,7 @@
       }
     },
     mounted() {
-      if(this.mode==='reduce') {
-        this.code=`console.time();
-const arr = (function(){
-  let a = []
-  for(let i = 0;i < 100000000; i++) {
-  	a.push(i)
-  }
-  return []
-}())
-arr.fakeReduce(function(accumulator, currentValue, index, array) {
-  return accumulator + currentValue;
-}, 10);
-console.timeEnd();
-console.table({a: 1})
-console.warn("it's not real reduce")
-console.error('there is a error')`
-      }
+      this.code=CodeMap[this.mode]||''
     },
     methods: {
       reduceSelect(e) {

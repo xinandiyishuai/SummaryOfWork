@@ -1,9 +1,33 @@
 <template>
   <div class='main'>
-    <a-button class="btn" ghost shape="circle" icon="redo" size="small" type="primary" @click="shuffle0"></a-button>
-    <a-button class="btn" ghost shape="circle" icon="undo" size="small" type="primary" @click="shuffle1"></a-button>
-    <a-button class="btn" ghost shape="circle" icon="plus" size="small" type="danger" @click="add"></a-button>
-    <a-button class="btn" ghost shape="circle" icon="minus" size="small" type="danger" @click="remove"></a-button>
+    <a-button class="btn"
+              ghost
+              shape="circle"
+              icon="redo"
+              size="small"
+              type="primary"
+              @click="shuffle0"></a-button>
+    <a-button class="btn"
+              ghost
+              shape="circle"
+              icon="undo"
+              size="small"
+              type="primary"
+              @click="shuffle1"></a-button>
+    <a-button class="btn"
+              ghost
+              shape="circle"
+              icon="plus"
+              size="small"
+              type="danger"
+              @click="add"></a-button>
+    <a-button class="btn"
+              ghost
+              shape="circle"
+              icon="minus"
+              size="small"
+              type="danger"
+              @click="remove"></a-button>
     <transition-group name="list-complete"
                       tag="p">
       <span v-for="item in items"
@@ -17,7 +41,7 @@
 <script>
   import Button from 'ant-design-vue/lib/button';
   import 'ant-design-vue/dist/antd.css';
-  import {shuffle0, shuffle1} from '../js/shuffle'
+  import { shuffle0,shuffle1 } from '../js/shuffle'
   export default {
     components: {
       aButton: Button,
@@ -39,10 +63,10 @@
         this.items.splice(this.randomIndex(),1)
       },
       shuffle0() {
-        this.items = shuffle0(this.items)
+        this.items=shuffle0(this.items)
       },
       shuffle1() {
-        this.items = shuffle1(this.items)
+        this.items=shuffle1(this.items)
       }
     },
     created() {
@@ -51,9 +75,9 @@
   }
 </script>
 <style scoped lang='scss'>
- .btn{
-   margin-right: 10px;
- }
+  .btn {
+    margin-right: 10px;
+  }
   .list-complete-item {
     transition: all 0.6s;
     display: inline-block;
@@ -62,7 +86,7 @@
     font-weight: 600;
   }
   .list-complete-enter, .list-complete-leave-to
-  /* .list-complete-leave-active for below version 2.1.8 */ {
+    /* .list-complete-leave-active for below version 2.1.8 */ {
     opacity: 0;
     transform: translateY(30px);
   }

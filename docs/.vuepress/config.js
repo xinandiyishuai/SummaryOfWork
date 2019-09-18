@@ -1,23 +1,38 @@
 const path = require('path')
-const { getTimeEmoj, getMdMap } = require('./util/tools')
+const {
+  getTimeEmoj,
+  getMdMap
+} = require('./util/tools')
 const navTitle = getTimeEmoj()
 module.exports = {
   title: 'Summary Of work',
   description: 'The description of the site.',
-  head: [['link', { rel: 'icon', href: `/logo.png` }]],
+  head: [
+    ['link', {
+      rel: 'icon',
+      href: `/logo.png`
+    }]
+  ],
   // base: '/SummaryOfwork/',
   base: '/',
   dest: './dist',
 
   themeConfig: {
-    nav: [
-      { text: '🏠', link: '/' },
-      { text: navTitle, link: '/nav/' },
-      { text: '博客', link: '/blog/' },
+    nav: [{
+        text: '🏠',
+        link: '/'
+      },
+      {
+        text: navTitle,
+        link: '/nav/'
+      },
+      {
+        text: '博客',
+        link: '/blog/'
+      },
       {
         text: '学习之道',
-        items: [
-          {
+        items: [{
             text: '📚读书',
             link: '/bookReading/'
           },
@@ -32,8 +47,8 @@ module.exports = {
         ]
       },
       {
-        text: 'Leetcode',
-        link: '/leetcode/数组乱序.html'
+        text: 'Algorithm',
+        link: '/algorithm/'
       },
       {
         text: 'Gayhub',
@@ -46,12 +61,14 @@ module.exports = {
       '/bookReading/': getMdMap(path.join('bookReading')),
       '/resource/': getMdMap(path.join('resource')),
       '/article/': getMdMap(path.join('article')),
-      '/leetcode/': getMdMap(path.join('leetcode'))
+      '/algorithm/': getMdMap(path.join('algorithm'))
     }
   },
   markdown: {
     // options for markdown-it-anchor
-    anchor: { permalink: false },
+    anchor: {
+      permalink: false
+    },
     config: (md) => {
       md.use(require('markdown-it-katex'))
     }

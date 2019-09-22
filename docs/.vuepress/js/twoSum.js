@@ -6,7 +6,7 @@
 因为 nums[0] + nums[1] = 2 + 7 = 9  
 所以返回 [0, 1]
 */
-function sum(arr, target) {
+export const sumFoo = (arr = [], target) => {
   const record = new Map(),
     sumArr = []
   for (let i = 0; i < arr.length; i++) {
@@ -27,4 +27,3 @@ function sum(arr, target) {
   }
   return sumArr
 }
-sum([8, 0, 3, 2, 4], 10)

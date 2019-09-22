@@ -38,65 +38,68 @@ class Timer {
     }
 }
 
-export const _console = {
+const _console = window.console
+
+export const console = {
   logInfo: [],
   log(...args) {
     this.logInfo.push(...args)
-    console.log.apply(this, args)
+    _console.log.apply(this, args)
   },
   info(...args) {
     this.logInfo.push(...args)
-    console.info.apply(this, args)
+    _console.info.apply(this, args)
   },
   debug(...args) {
     this.logInfo.push(...args)
-    console.debug.apply(this, args)
+    _console.debug.apply(this, args)
   },
   warn(value) {
     this.logInfo.push({
       type: 'warn',
       value
     })
-    console.warn.call(this, value)
+    _console.warn.call(this, value)
   },
   error(value) {
     this.logInfo.push({
       type: 'error',
       value
     })
-    console.error.call(this, value)
+    _console.error.call(this, value)
   },
   dir(...args) {
     this.logInfo.push(...args)
-    console.dir.apply(this, args)
+    _console.dir.apply(this, args)
   },
   table(value) {
     this.logInfo.push({
       type: 'table',
       value
     })
-    console.table.call(this, value)
+    _console.table.call(this, value)
   },
   time(name = 'default') {
     const timer = this[`timer${name}`] = new Timer(name)
     timer.add(() => {
       timer.updateTime()
     })
-    console.time.call(this, name)
+    _console.time.call(this, name)
     timer.start()
   },
   timeEnd(name = 'default') {
     this[`timer${name}`].stop()
-    console.timeEnd.call(this, name)
+    _console.timeEnd.call(this, name)
     const timestamp = this[`timer${name}`].timestamp
     this.logInfo.push(timestamp)
   },
   getLog() {
     const log = [...this.logInfo]
-    this.logInfo = []
     return log
+  },
+  clearLog() {
+    this.logInfo = []
   }
 }
-window._console = _console
 
-export default _console
+export default console

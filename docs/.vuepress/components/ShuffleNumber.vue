@@ -39,58 +39,56 @@
   </div>
 </template>
 <script>
-  import Button from 'ant-design-vue/lib/button';
-  import 'ant-design-vue/dist/antd.css';
-  import { shuffle0,shuffle1 } from '../js/shuffle'
+  import Button from 'ant-design-vue/lib/button'
+  import 'ant-design-vue/dist/antd.css'
+  import { shuffle0, shuffle1 } from '../js'
   export default {
-    components: {
-      aButton: Button,
-    },
-    data() {
-      return {
-        items: [1,2,3,4,5,6,7,8,9],
-        nextNum: 10
-      }
-    },
-    methods: {
-      randomIndex() {
-        return Math.floor(Math.random()*this.items.length)
-      },
-      add() {
-        this.items.splice(this.randomIndex(),0,this.nextNum++)
-      },
-      remove() {
-        this.items.splice(this.randomIndex(),1)
-      },
-      shuffle0() {
-        this.items=shuffle0(this.items)
-      },
-      shuffle1() {
-        this.items=shuffle1(this.items)
-      }
-    },
-    created() {
-
-    }
+  	components: {
+  		aButton: Button,
+  	},
+  	data() {
+  		return {
+  			items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  			nextNum: 10,
+  		}
+  	},
+  	methods: {
+  		randomIndex() {
+  			return Math.floor(Math.random() * this.items.length)
+  		},
+  		add() {
+  			this.items.splice(this.randomIndex(), 0, this.nextNum++)
+  		},
+  		remove() {
+  			this.items.splice(this.randomIndex(), 1)
+  		},
+  		shuffle0() {
+  			this.items = shuffle0(this.items)
+  		},
+  		shuffle1() {
+  			this.items = shuffle1(this.items)
+  		},
+  	},
+  	created() {},
   }
 </script>
 <style scoped lang='scss'>
   .btn {
-    margin-right: 10px;
+  	margin-right: 10px;
   }
   .list-complete-item {
-    transition: all 0.6s;
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 16px;
-    font-weight: 600;
+  	transition: all 0.6s;
+  	display: inline-block;
+  	margin-right: 10px;
+  	font-size: 16px;
+  	font-weight: 600;
   }
   .list-complete-enter, .list-complete-leave-to
-    /* .list-complete-leave-active for below version 2.1.8 */ {
-    opacity: 0;
-    transform: translateY(30px);
+        /* .list-complete-leave-active for below version 2.1.8 */ {
+  	opacity: 0;
+  	transform: translateY(30px);
   }
   .list-complete-leave-active {
-    position: absolute;
+  	position: absolute;
   }
 </style>

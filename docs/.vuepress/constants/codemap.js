@@ -17,7 +17,7 @@ console.error('there is a error')`,
   twoSum: `const sum = sumFoo([8, 0, 3, 2, 4], 10)
 console.log(sum)`,
 findMedianSortedArrays: `console.time()
-const nums1 = [-4, -1, 0, 2, 2, 3, 9], nums2 = [3, 4, ,4 , 8, 9]
+const nums1 = [-4, -1, 0, 2, 2, 3, 9], nums2 = [3, 4, 4, 8, 9]
 const result = findMedianSortedArrays(nums1, nums2)
 console.log(result)
 console.timeEnd()`,

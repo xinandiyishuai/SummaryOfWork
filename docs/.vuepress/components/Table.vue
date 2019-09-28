@@ -17,5 +17,8 @@
   	methods: {},
   }
 </script>
-<style scoped lang='scss'>
+<style lang='scss'>
+.ivu-table td.active {
+  color: #ff5722!important;
+}
 </style>

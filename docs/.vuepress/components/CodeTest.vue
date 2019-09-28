@@ -193,7 +193,7 @@
   						this.isCompute = false
   						this.resultText = console.getLog()
   						Object.keys(FUN).forEach((key) => {
-  							window[key] = undefined
+                if(key !== 'console') window[key] = undefined
   						})
   					}, 0)
   				})

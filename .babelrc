@@ -2,6 +2,6 @@
   "plugins": [["import", 
     {
       "libraryName": "ant-design-vue",
-      "style": true,   // or 'css'
+      "style": true   // or 'css'
     }]]
 }

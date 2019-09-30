@@ -101,5 +101,4 @@ export const console = {
     this.logInfo = []
   }
 }
-
 export default console

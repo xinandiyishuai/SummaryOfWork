@@ -36,7 +36,7 @@
       }
     },
     mounted () {
-      console.log(this.$page)
+      // console.log(this.$page)
       this.curveShow = window.innerWidth > 1068 ? true: false
       window.onresize = (e) => {
         this.curveShow = window.innerWidth > 1068 ? true: false

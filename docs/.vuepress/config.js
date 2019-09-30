@@ -13,8 +13,8 @@ module.exports = {
       href: `/logo.png`
     }]
   ],
-  // base: '/SummaryOfwork/',
-  base: '/',
+  base: '/SummaryOfwork/',
+  // base: '/',
   dest: './dist',
 
   themeConfig: {

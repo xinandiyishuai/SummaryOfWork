@@ -215,7 +215,10 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+body{
+  font-size: 14px!important;
+}
   .m-t-10 {
   	margin-top: 10px;
   }

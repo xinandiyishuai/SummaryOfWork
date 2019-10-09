@@ -24,6 +24,18 @@ console.timeEnd()`,
 longestPalindrome: `console.time()
 const s = longestPalindrome('ababc')
 console.log(s)
+console.timeEnd()`,
+atoi: `console.time()
+const result = atoi('  -172817d saojda 233')
+console.log(result)
+console.timeEnd()`,
+longestCommonPrefix: `console.time()
+const result = longestCommonPrefix(["flower","flow","flight"])
+console.log(result)
+console.timeEnd()`,
+threeSum: `console.time()
+const result = threeSum([-1, 0, 1, 2, -1, -4])
+console.log(result)
 console.timeEnd()`
 }
 

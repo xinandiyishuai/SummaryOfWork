@@ -1,7 +1,7 @@
 <template>
   <div class="md-card" :class="link? 'cursor': ''" @click="toLink">
     <div v-if="image" class="card-image">
-      <img :src="$withBase(image)" alt="">
+      <img :src="$withBase(image)" alt="" />
     </div>
     <div class="card-content">
       <slot></slot>
@@ -28,10 +28,10 @@ export default {
   background-color $frontColor
   border 1px solid #eee
   border-radius 0.5rem
-  box-shadow 0 5px 15px -5px rgba(0,0,0,.1)
-  padding 0.5rem
+  box-shadow 0 5px 15px -5px rgba(0,0,0,.2)
+  padding 0.5rem 1.5rem
   margin-top 1em
-  min-height 150px
+  min-height 100px
   display flex
   flex-direction row
   align-items: stretch

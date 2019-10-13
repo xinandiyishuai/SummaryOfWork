@@ -10,6 +10,14 @@
         <a-select-option value="fakeReduce">fakeReduce</a-select-option>
         <a-select-option value="reduce">reduce</a-select-option>
       </a-select>
+      <a-select labelInValue
+                :defaultValue="{key: 'quickSort1'}"
+                style="width: 120px;margin-right: 14px;"
+                @change="quickSortSelect"
+                v-if="mode === 'testQuickSort'">
+        <a-select-option value="quickSort1">quickSort1</a-select-option>
+        <a-select-option value="quickSort2">quickSort2</a-select-option>
+      </a-select>
       <a-button type="primary"
                 size='small'
                 @click="run">运行</a-button>
@@ -56,13 +64,11 @@
   import Select from 'ant-design-vue/lib/select'
   import Table from 'ant-design-vue/lib/table'
   import Alert from 'ant-design-vue/lib/alert'
-  import 'ant-design-vue/dist/antd.css'
   import iSpin from 'iview/src/components/spin'
 
   import CodeMap from '../constants/codemap'
 
   import '../js/reduce'
-  import 'iview/dist/styles/iview.css'
   import 'codemirror/lib/codemirror.css'
   import 'codemirror/theme/material.css'
   import './styles/overcodeMirror.css'
@@ -165,12 +171,21 @@
   		this.code = CodeMap[this.mode] || ''
   	},
   	methods: {
+      codeToggle(key, W, M) {
+        const expW = new RegExp(`${W}`,'g')
+        const expM = new RegExp(`${M}`,'g')
+        if (key === W)
+  				this.code = this.code.replace(expM,`${W}`)
+  			else this.code = this.code.replace(expW, `${M}`)
+      },
   		reduceSelect(e) {
-  			const { key } = e
-  			if (key === 'reduce')
-  				this.code = this.code.replace(/\.fakeReduce/g, '.reduce')
-  			else this.code = this.code.replace(/\.reduce/g, '.fakeReduce')
-  		},
+        const { key } = e
+        this.codeToggle(key, 'reduce', 'fakeReduce')
+      },
+      quickSortSelect(e) {
+        const { key } = e
+        this.codeToggle(key, 'quickSort1', 'quickSort2')
+      },
   		run() {
   			clearTimeout(this.computTimer)
   			const that = this
@@ -215,7 +230,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body{
   font-size: 14px!important;
 }
@@ -233,12 +248,12 @@ body{
   		height: 300px;
   		overflow-y: auto;
   		border-radius: 8px;
-  		border: 1px solid #b6b9bd;
+  		border: 1px solid #e0e0e0;
   		box-sizing: border-box;
   		padding: 14px;
   		margin-left: 10px;
   		position: relative;
-      box-shadow: 0 0 4px 2px #cfcfcf inset;
+      box-shadow: 0 0 2px 2px #e0e0e0;
   	}
   }
   .select_wraper {

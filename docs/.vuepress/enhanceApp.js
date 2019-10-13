@@ -5,4 +5,7 @@ export default ({
   siteData // 站点元数据
 }) => {
   // console.log(Vue, options, router, siteData)
+  import('iview/dist/styles/iview.css')
+  import('ant-design-vue/dist/antd.css')
+
 }

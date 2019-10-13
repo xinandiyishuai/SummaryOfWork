@@ -27,11 +27,11 @@ module.exports = {
         link: '/nav/'
       },
       {
-        text: '博客',
+        text: '求知',
         link: '/blog/'
       },
       {
-        text: '学习之道',
+        text: '好学',
         items: [{
             text: '📚读书',
             link: '/bookReading/'

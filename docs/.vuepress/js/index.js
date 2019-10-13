@@ -6,4 +6,6 @@ export * from './longestPalindrome'
 export * from './atoi'
 export * from './longestCommonPrefix'
 export * from './threeSum'
+export * from './sort'
+export * from './threeSumClosest'
 
